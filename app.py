@@ -1,10 +1,12 @@
 import os
 
 from flask import Flask, redirect, render_template, request
+from flask_socketio import SocketIO
 
 app = Flask(__name__)
+socketio = SocketIO(app)
 
-mittaukset = dict()
+mittaukset = dict() # {'maanantai': 7}
 
 @app.route('/', methods=['GET'])
 def index():
@@ -17,7 +19,9 @@ def lisaa_tieto():
    mittaustulos_lista = data['mittaus']
    mittaukset[mittaustulos_lista[0]] = mittaustulos_lista[1]
    print("mittaustulos:", mittaustulos_lista)
+   socketio.emit('data_update')
    return "200"
 
 if __name__ == '__main__':
-   app.run()
+   #app.run()
+   socketio.run(app, debug=True)

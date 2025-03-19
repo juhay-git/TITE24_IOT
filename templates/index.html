@@ -13,6 +13,7 @@
         text-align: left;
       }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
 </head>
 <html>
    <body style="font-family:Verdana, Geneva, Tahoma, sans-serif;">
@@ -32,4 +33,10 @@
         </table>
       </div>  
    </body>
+   <script text="text/javascript">
+      var socket = io.connect('localhost:5000')
+      socket.on('data_update', function() {
+        window.location.reload()
+      });
+   </script>
 </html>

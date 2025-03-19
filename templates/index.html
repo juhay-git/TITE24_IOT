@@ -1,0 +1,35 @@
+<!doctype html>
+<head>
+    <title>Mittaustiedot</title>
+    <style>
+      table,th,td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      th,td {
+        padding: 5px;
+      }
+      th {
+        text-align: left;
+      }
+    </style>
+</head>
+<html>
+   <body style="font-family:Verdana, Geneva, Tahoma, sans-serif;">
+      <div class="app">
+        <h1>Mittaukset</h1>
+        <table style="width: 100%;">
+          <tr>
+            <th>Päivä</th>
+            <th>Mittaus</th>
+          </tr>
+          {% for avain, arvo in taulukko.items() %}
+          <tr>
+            <td>{{avain}}</td>
+            <td>{{arvo}}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>  
+   </body>
+</html>

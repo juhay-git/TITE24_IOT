@@ -34,7 +34,7 @@
       </div>  
    </body>
    <script text="text/javascript">
-      var socket = io.connect('https://tite24-mittaukset-jyh.azurewebsites.net/')
+      var socket = io.connect('https://tite24-mittaukset-jyh.azurewebsites.net')
       socket.on('data_update', function() {
         window.location.reload()
       });

@@ -2,9 +2,11 @@ import os
 
 from flask import Flask, redirect, render_template, request
 from flask_socketio import SocketIO
+import eventlet
 
 app = Flask(__name__)
-socketio = SocketIO(app)
+
+socketio = SocketIO(app, async_mode='eventlet')
 
 mittaukset = dict() # {'maanantai': 7}
 

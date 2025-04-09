@@ -34,7 +34,7 @@ def index():
    yhteys.close()
 
    print('Request for index page received')
-   return render_template('index.html', taulukko = mittaustiedot)
+   return render_template('chart.html', taulukko = mittaustiedot)
 
 @app.route('/lisaa_tieto', methods=['POST'])
 def lisaa_tieto():
